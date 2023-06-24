@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Computers;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -25,4 +25,6 @@ class Laptop extends Model
 	{
 		return $this->belongsTo(Product::class);
 	}
+
+
 }
