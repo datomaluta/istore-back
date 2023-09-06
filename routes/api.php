@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/test', [TestController::class, 'test']);
 
 Route::get('/{category}/allproducts', [CategoryController::class, 'getProductsFromCategory']);
-// Route::get('{subcategory}')
+Route::post('/register', [UserController::class, 'register']);
+Route::post('/login', [UserController::class, 'login']);
+Route::get('/userinfo', [UserController::class, 'getUserInfo'])->middleware('auth:sanctum');
