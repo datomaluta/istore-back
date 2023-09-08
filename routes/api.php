@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,9 +20,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 	return $request->user();
 });
 
-Route::get('/test', [TestController::class, 'test']);
+Route::middleware('auth:sanctum')->group(
+	function () {
+		Route::get('/userinfo', [UserController::class, 'getUserInfo']);
+		Route::get('/logout', [UserController::class, 'logout']);
+	}
+);
 
 Route::get('/{category}/allproducts', [CategoryController::class, 'getProductsFromCategory']);
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
-Route::get('/userinfo', [UserController::class, 'getUserInfo'])->middleware('auth:sanctum');

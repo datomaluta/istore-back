@@ -32,7 +32,7 @@ class UserController extends Controller
 		$attributes = $request->validated();
 
 		if (!auth()->attempt($attributes)) {
-			return response()->json(['message'=>'Something went wrong!', 401]);
+			return response()->json(['message'=>'Invalid credentials!'], 401);
 		}
 
 		session()->regenerate();
@@ -50,5 +50,11 @@ class UserController extends Controller
 			// User is not authenticated, you can redirect to the login page or handle it as needed
 			return  response()->json(['message'=>'Something went wrong!']);
 		}
+	}
+
+	public function logout()
+	{
+		session()->invalidate();
+		return response(['message'=>'Logged out']);
 	}
 }
