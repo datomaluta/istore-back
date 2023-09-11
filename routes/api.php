@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,10 @@ Route::middleware('auth:sanctum')->group(
 		Route::get('/logout', [UserController::class, 'logout']);
 	}
 );
+
+Route::middleware((['auth:sanctum', 'admin']))->group((function () {
+	Route::get('/test', [TestController::class, 'test']);
+}));
 
 Route::get('/{category}/allproducts', [CategoryController::class, 'getProductsFromCategory']);
 Route::post('/register', [UserController::class, 'register']);

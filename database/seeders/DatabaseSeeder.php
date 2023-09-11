@@ -41,12 +41,12 @@ class DatabaseSeeder extends Seeder
 		Category::create(['name'=>'mouse', 'parent_id'=>$peripheralsCategory->id]);
 		Category::create(['name'=>'monitors', 'parent_id'=>$peripheralsCategory->id]);
 
-		$laptop1 = Product::create(['brand'=> 'asus', 'price' => 2000, 'image'=>'/thumbnails/mack.jpg', 'category_id'=>$laptopSubCategory->id]);
-		$laptop2 = Product::create(['brand'=> 'acer', 'price' => 4000, 'image'=>'/thumbnails/lenovo.jpg', 'category_id'=>$laptopSubCategory->id]);
-		$pc1 = Product::create(['brand'=> 'lenovo', 'price' => 3000, 'image'=>'/thumbnails/pc1.jpg', 'category_id'=>$pcSubCategory->id]);
-		$pc2 = Product::create(['brand'=> 'vento', 'price' => 5000, 'image'=>'/thumbnails/pc2.jpg', 'category_id'=>$pcSubCategory->id]);
-		$allInOne1 = Product::create(['brand'=> 'samsung', 'price' => 7000, 'image'=>'/thumbnails/inone1.jpg', 'category_id'=>$allInOneSubCategory->id]);
-		$allInOne2 = Product::create(['brand'=> 'LG', 'price' => 8000, 'image'=>'/thumbnails/inone2.jpg', 'category_id'=>$allInOneSubCategory->id]);
+		$laptop1 = Product::create(['label'=>'Asus Rogtrix i5-12000 500SSD', 'brand'=> 'asus', 'price' => 2000, 'image'=>'/thumbnails/mack.jpg', 'category_id'=>$laptopSubCategory->id, 'stock'=>100]);
+		$laptop2 = Product::create(['label'=>'Apple Mackbook M1 i9-10500 266SSD', 'brand'=> 'acer', 'price' => 4000, 'image'=>'/thumbnails/lenovo.jpg', 'category_id'=>$laptopSubCategory->id, 'stock'=>40]);
+		$pc1 = Product::create(['label'=> 'ULTRA PC Intel G6405 Asus PRIME H510M-K SSD 120GB 8GB', 'brand' => 'lenovo', 'price' => 3000, 'image'=>'/thumbnails/pc1.jpg', 'category_id'=>$pcSubCategory->id, 'stock'=>120]);
+		$pc2 = Product::create(['label'=>'Dell Vostro 3710 Intel I3-12100 8GB 256GB SSD DVD-RW - 210-BCUE_5406', 'brand'=> 'Dell', 'price' => 5000, 'image'=>'/thumbnails/pc2.jpg', 'category_id'=>$pcSubCategory->id, 'stock'=>90]);
+		$allInOne1 = Product::create(['label'=>'HP Pavilion 24 23.8" FHD AMD Ryzen 3 5300U 8GB 512GB SSD Win11 Home - 5D247EA', 'brand'=> 'samsung', 'price' => 7000, 'image'=>'/thumbnails/inone1.jpg', 'category_id'=>$allInOneSubCategory->id, 'stock'=>66]);
+		$allInOne2 = Product::create(['label'=>'HP ProOne 240 G9 23.8" FHD Intel I3-1215U 8GB 256GB SSD - 6D447EA', 'brand'=> 'LG', 'price' => 8000, 'image'=>'/thumbnails/inone2.jpg', 'category_id'=>$allInOneSubCategory->id, 'stock'=>55]);
 
 		$laptop1Deep = Laptop::create(['product_id'=> $laptop1->id, 'model'=>'rogtrix', 'cpu'=>'i5', 'ram'=>'12',
 			'ssd'                                     => '12', 'hdd'=>'12',
