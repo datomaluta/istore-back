@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models\Computers;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PC extends Model
+class AllInOne extends Model
 {
 	use HasFactory;
 
-	protected $table = 'pc';
+	protected $table = 'all_in_one';
 
 	protected $fillable = [
 		'product_id',
@@ -18,7 +18,8 @@ class PC extends Model
 		'ssd',
 		'hdd',
 		'gpu',
-		'motherboard',
+		'screen_size',
+		'resolution',
 	];
 
 	public function product()

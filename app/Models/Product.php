@@ -14,6 +14,7 @@ class Product extends Model
 		'brand',
 		'price',
 		'image',
+		'stock',
 		'category_id',
 	];
 
@@ -32,7 +33,7 @@ class Product extends Model
 		return $this->hasOne(PC::class);
 	}
 
-	public function allinone()
+	public function all_in_one()
 	{
 		return $this->hasOne(AllInOne::class);
 	}

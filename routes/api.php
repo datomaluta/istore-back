@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -35,3 +36,9 @@ Route::middleware((['auth:sanctum', 'admin']))->group((function () {
 Route::get('/{category}/allproducts', [CategoryController::class, 'getProductsFromCategory']);
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
+Route::get('/categories', [CategoryController::class, 'getAllCategories']);
+Route::post('/product', [ProductController::class, 'createProduct']);
+Route::get('/product/{id}', [ProductController::class, 'getProduct']);
+Route::get('/categories/{id}', [CategoryController::class, 'getCategory']);
+Route::put('/product/{id}', [ProductController::class, 'editProduct']);
+Route::delete('/product/{id}', [ProductController::class, 'deleteProduct']);

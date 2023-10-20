@@ -5,9 +5,9 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Category;
-use App\Models\Computers\AllInOne;
-use App\Models\Computers\Laptop;
-use App\Models\Computers\PC;
+use App\Models\AllInOne;
+use App\Models\Laptop;
+use App\Models\PC;
 use App\Models\Product;
 use Illuminate\Database\Seeder;
 
@@ -62,11 +62,11 @@ class DatabaseSeeder extends Seeder
 
 		$pc2Deep = PC::create(['product_id'=>$pc2->id, 'cpu'=>'i7', 'ram'=>'12', 'ssd'=> '12', 'hdd'=>'12', 'gpu'=>'gtx 1080', 'motherboard'=>'atx']);
 
-		$allInOne1Deep = AllInOne::create(['product_id' => $allInOne1->id, 'cpu'=>'i5', 'ram'=>'12',
+		$allInOne1Deep = AllInOne::create(['product_id' => $allInOne1->id, 'model'=>'rogtrix', 'cpu'=>'i5', 'ram'=>'12',
 			'ssd'                                          => '12', 'hdd'=>'12',
 			'gpu'                                          => 'gtx', 'screen_size'=>'didi', 'resolution'=>'1920x1080']);
 
-		$allInOne2Deep = AllInOne::create(['product_id' => $allInOne2->id, 'cpu'=>'i3', 'ram'=>'16',
+		$allInOne2Deep = AllInOne::create(['product_id' => $allInOne2->id, 'model'=>'rogtrix', 'cpu'=>'i3', 'ram'=>'16',
 			'ssd'                                          => '12', 'hdd'=>'12',
 			'gpu'                                          => 'gtx', 'screen_size'=>'didi', 'resolution'=>'1920x1080']);
 	}
