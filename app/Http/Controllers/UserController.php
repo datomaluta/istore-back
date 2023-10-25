@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\UserRegisterRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -56,5 +57,28 @@ class UserController extends Controller
 	{
 		session()->invalidate();
 		return response(['message'=>'Logged out']);
+	}
+
+	public function updateUserInfo(UserUpdateRequest $request)
+	{
+		$attributes = $request->validated();
+
+		// Get the authenticated user
+		$user = Auth::user();
+
+		// Check if 'name' exists in the $attributes array and update the name if it does
+		if (isset($attributes['name'])) {
+			$user->name = $attributes['name'];
+		}
+
+		// Check if 'password' exists in the $attributes array and update the password if it does
+		if (isset($attributes['password'])) {
+			$user->password = bcrypt($attributes['password']);
+		}
+
+		// Save the changes to the user model
+		$user->save();
+
+		return response()->json(['message' => 'User information updated successfully']);
 	}
 }

@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
-use App\Models\Computers\AllInOne;
+use App\Models\AllInOne;
 use App\Models\Laptop;
 use App\Models\PC;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -129,5 +130,18 @@ class ProductController extends Controller
 		// $productData['category_name'] = $categoryName;
 
 		return response()->json($productData);
+	}
+
+	public function search(Request $request)
+	{
+		$query = $request->input('search_query');
+
+		// Perform the search with pagination
+		$results = Product::where(function ($queryBuilder) use ($query) {
+			$queryBuilder->where('label', 'like', '%' . $query . '%')
+						 ->orWhere('brand', 'like', '%' . $query . '%');
+		})->paginate(6); // You can specify the number of results per page (e.g., 10)
+
+		return response()->json($results);
 	}
 }
