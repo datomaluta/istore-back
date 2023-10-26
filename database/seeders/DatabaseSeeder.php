@@ -30,17 +30,6 @@ class DatabaseSeeder extends Seeder
 		$laptopSubCategory = Category::create(['name'=>'laptop', 'parent_id'=>$computersCategory->id]);
 		$allInOneSubCategory = Category::create(['name'=>'all_in_one', 'parent_id'=>$computersCategory->id]);
 
-		$partsCategory = Category::create(['name'=>'parts']);
-		Category::create(['name'=>'cpu', 'parent_id'=>$partsCategory->id]);
-		Category::create(['name'=>'gpu', 'parent_id'=>$partsCategory->id]);
-		Category::create(['name'=>'motherboard', 'parent_id'=>$partsCategory->id]);
-		Category::create(['name'=>'ram', 'parent_id'=>$partsCategory->id]);
-
-		$peripheralsCategory = Category::create(['name'=>'peripherals']);
-		Category::create(['name'=>'keyboard', 'parent_id'=>$peripheralsCategory->id]);
-		Category::create(['name'=>'mouse', 'parent_id'=>$peripheralsCategory->id]);
-		Category::create(['name'=>'monitors', 'parent_id'=>$peripheralsCategory->id]);
-
 		$laptop1 = Product::create(['label'=>'Asus Rogtrix i5-12000 500SSD', 'brand'=> 'asus', 'price' => 2000, 'image'=>'/thumbnails/mack.jpg', 'category_id'=>$laptopSubCategory->id, 'stock'=>100]);
 		$laptop2 = Product::create(['label'=>'Apple Mackbook M1 i9-10500 266SSD', 'brand'=> 'acer', 'price' => 4000, 'image'=>'/thumbnails/lenovo.jpg', 'category_id'=>$laptopSubCategory->id, 'stock'=>40]);
 		$pc1 = Product::create(['label'=> 'ULTRA PC Intel G6405 Asus PRIME H510M-K SSD 120GB 8GB', 'brand' => 'lenovo', 'price' => 3000, 'image'=>'/thumbnails/pc1.jpg', 'category_id'=>$pcSubCategory->id, 'stock'=>120]);

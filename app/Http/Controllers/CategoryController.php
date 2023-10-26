@@ -12,7 +12,7 @@ class CategoryController extends Controller
 		$category = Category::where('name', $category)->first();
 
 		if ($category) {
-			$perPage = 4;
+			$perPage = 6;
 
 			if ($category->parent_id) {
 				$paginatedProducts = $category->products()->orderBy('created_at', 'desc')->paginate($perPage);

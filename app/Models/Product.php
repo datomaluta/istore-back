@@ -37,39 +37,4 @@ class Product extends Model
 	{
 		return $this->hasOne(AllInOne::class);
 	}
-
-	public function cpu()
-	{
-		return $this->hasOne(CPU::class);
-	}
-
-	public function gpu()
-	{
-		return $this->hasOne(GPU::class);
-	}
-
-	public function motherboard()
-	{
-		return $this->hasOne(MotherBoard::class);
-	}
-
-	public function ram()
-	{
-		return $this->hasOne(RAM::class);
-	}
-
-	public function keyboard()
-	{
-		return $this->hasOne(Keyboard::class);
-	}
-
-	public function mouse()
-	{
-		return $this->hasOne(Mouse::class);
-	}
-
-	public function monitor()
-	{
-		return $this->hasOne(Monitor::class);
-	}
 }
